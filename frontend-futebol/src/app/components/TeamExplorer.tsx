@@ -22,7 +22,7 @@ export const TeamExplorer = () => {
           console.error("Erro ao carregar times:", data);
         }
       })
-      .catch(err => setError("Erro de conexão ao buscar times."));
+      .catch(error => setError("Erro de conexão ao buscar times."));
   }, []);
 
   // Carregar detalhes do time selecionado
@@ -48,7 +48,6 @@ export const TeamExplorer = () => {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold text-white mb-2">Explorador de Clubes</h1>
-        <p className="text-zinc-400">Consulte perfil e histórico detalhado.</p>
       </div>
 
       <Card className="border-zinc-800 bg-zinc-900/50">

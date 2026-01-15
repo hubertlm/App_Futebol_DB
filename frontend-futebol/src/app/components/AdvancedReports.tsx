@@ -32,7 +32,7 @@ export const AdvancedReports = () => {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold text-white mb-2">Relatórios Avançados</h1>
-        <p className="text-zinc-400">Consultas SQL complexas requeridas na Questão 5</p>
+        
       </div>
 
       {/* Menu de Abas */}
