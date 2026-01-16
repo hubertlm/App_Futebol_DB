@@ -40,7 +40,7 @@ Siga esta ordem estrita para garantir que o banco de dados e as permissões de u
 
 1. Crie um banco de dados vazio chamado `futebol_db`.
 2. Execute os scripts SQL originais do trabalho (via PGAdmin ou psql) nesta ordem:
-   * `Scripts_postgreSQL-2.pdf` (Criação de Tabelas).
+   * `Scripts_postgreSQL-1.pdf` (Criação de Tabelas).
    * `Consultas_visoes.pdf` (Views).
    * `Etapa_7_BD.pdf` (Procedures e Triggers).
 3. Execute o seguinte comando para inicializar o backend:
