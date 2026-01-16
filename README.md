@@ -19,11 +19,11 @@ A aplicação segue uma arquitetura de três camadas, onde a segurança e a lóg
 ### Fluxo de Conexão e Segurança (RBAC Nativo)
 Diferente de sistemas tradicionais que usam um único "superusuário" para conectar ao banco, este sistema realiza **autenticação dinâmica**:
 
-1.  **Frontend (React):** O usuário insere suas credenciais (ex: `Amorim` ou `Verdancio`).
-2.  **Backend (FastAPI):** O Python recebe os dados e tenta abrir uma conexão com o PostgreSQL usando **exatamente** aquele usuário e senha.
-3.  **PostgreSQL:** O banco verifica se o usuário existe e quais são suas permissões (`GRANT`/`REVOKE`).
-    * Se for `Amorim` (Role: **admin**): O banco permite `INSERT`, `UPDATE`, `DELETE`.
-    * Se for `Verdancio` (Role: **analista**): O banco rejeita qualquer tentativa de escrita, permitindo apenas `SELECT`.
+1. **Frontend (React):** O usuário insere suas credenciais (ex: `Amorim` ou `Verdancio`).
+2. **Backend (FastAPI):** O Python recebe os dados e tenta abrir uma conexão com o PostgreSQL usando **exatamente** aquele usuário e senha.
+3. **PostgreSQL:** O banco verifica se o usuário existe e quais são suas permissões (`GRANT`/`REVOKE`).
+   * Se for `Amorim` (Role: **admin**): O banco permite `INSERT`, `UPDATE`, `DELETE`.
+   * Se for `Verdancio` (Role: **analista**): O banco rejeita qualquer tentativa de escrita, permitindo apenas `SELECT`.
 
 ### Componentes do Banco Utilizados
 * **Triggers:** Validação de dados na inserção de partidas (impede cartões/escanteios negativos) – *Lógica no Banco, não no Backend.*
@@ -38,8 +38,16 @@ Siga esta ordem estrita para garantir que o banco de dados e as permissões de u
 
 ### 1. Preparação do Banco de Dados (PostgreSQL)
 
-1.  Crie um banco de dados vazio chamado `futebol_db`.
-2.  Execute os scripts SQL originais do trabalho (via PGAdmin ou psql) nesta ordem:
-    * `Scripts_postgreSQL-2.pdf` (Criação de Tabelas).
-    * `Consultas_visoes.pdf` (Views).
-    * `Etapa_7_BD.pdf` (Procedures e Triggers).
+1. Crie um banco de dados vazio chamado `futebol_db`.
+2. Execute os scripts SQL originais do trabalho (via PGAdmin ou psql) nesta ordem:
+   * `Scripts_postgreSQL-2.pdf` (Criação de Tabelas).
+   * `Consultas_visoes.pdf` (Views).
+   * `Etapa_7_BD.pdf` (Procedures e Triggers).
+3. Execute o seguinte comando para inicializar o backend:
+```bash
+uvicorn backend:app --reload
+```
+4. Execute o seguinte comando para inicializar o frontend:
+```bash
+Npm run dev
+```
